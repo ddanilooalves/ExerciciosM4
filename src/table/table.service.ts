@@ -1,23 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTableDto } from './dto/create-table.dto';
-import { Table } from './entities/table.entity';
+import { User } from './entities/table.entity';
 
 @Injectable()
 export class TableService {
-  tables: Table[] = [];
+  users: User[] = [];
 
   findAll() {
-    return this.tables;
+    return this.users;
   }
 
   create(createTableDto: CreateTableDto) {
-    const table: Table = {
+    const user: User = {
       ...createTableDto,
       number: 0
     };
 
-    this.tables.push(table);
+    this.users.push(user);
 
-    return table;
+    return user;
   }
 }
