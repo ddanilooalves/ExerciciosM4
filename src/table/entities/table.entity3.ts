@@ -10,7 +10,7 @@ interface Admin extends User{
 
 type Person = Admin;
 
-export const persons: Person[] /* <- Person[] */ = [
+export const persons: Person[] = [
     {
         name: 'Max Mustermann',
         age: 25,
@@ -33,8 +33,14 @@ export const persons: Person[] /* <- Person[] */ = [
     }
 ];
 
-export function logPerson(user: Person) {
-    console.log(` - ${user.name}, ${user.age}`);
+export function logPerson(person: Person) {
+    let additionalInformation: string;
+    if (person.role) {
+        additionalInformation = person.role;
+    } else {
+        additionalInformation = person.occupation;
+    }
+    console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
 }
 
 persons.forEach(logPerson);

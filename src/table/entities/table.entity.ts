@@ -4,9 +4,7 @@ interface User {
       occupation: String
 };
 
-export type Users = unknown;
-
-export const users: Users[] = [
+export const users: User[] = [
     {
         name: "Wilker",
         age: 25,
